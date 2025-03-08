@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EmployeeController
 {
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
@@ -23,6 +23,8 @@ public class EmployeeController
     @GetMapping("api/employees/{id}")
     public ResponseEntity<EmployeeDTO> findEmployeeById(@PathVariable Integer id)
     {
+        employeeService.validationIdEmployee(id);
+
         EmployeeDTO employee = employeeService.findEmployeeById(id);
 
         return new ResponseEntity<>(employee, HttpStatus.OK);

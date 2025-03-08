@@ -1,29 +1,32 @@
 package com.amaris.demo.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EmployeeDTO
 {
+    @JsonProperty("id")
     private Integer Id;
-    private String employee_name;
-    private String employee_salary;
-    private Integer employee_age;
-    private String profile_image;
+    @JsonProperty("employee_name")
+    private String employeeName;
+
+    @JsonProperty("employee_salary")
+    private int employeeSalary;
+
+    @JsonProperty("employee_age")
+    private int employeeAge;
+
+    @JsonProperty("profile_image")
+    private String profileImage;
 
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(Integer id, String employee_name, String employee_salary, Integer employee_age) {
+    public EmployeeDTO(Integer id, String employeeName, int employeeSalary, int employeeAge, String profileImage) {
         Id = id;
-        this.employee_name = employee_name;
-        this.employee_salary = employee_salary;
-        this.employee_age = employee_age;
-    }
-
-    public EmployeeDTO(Integer id, String employee_name, String employee_salary, Integer employee_age, String profile_image) {
-        Id = id;
-        this.employee_name = employee_name;
-        this.employee_salary = employee_salary;
-        this.employee_age = employee_age;
-        this.profile_image = profile_image;
+        this.employeeName = employeeName;
+        this.employeeSalary = employeeSalary;
+        this.employeeAge = employeeAge;
+        this.profileImage = profileImage;
     }
 
     public Integer getId() {
@@ -34,35 +37,35 @@ public class EmployeeDTO
         Id = id;
     }
 
-    public String getEmployee_name() {
-        return employee_name;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setEmployee_name(String employee_name) {
-        this.employee_name = employee_name;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
-    public String getEmployee_salary() {
-        return employee_salary;
+    public int getEmployeeSalary() {
+        return employeeSalary;
     }
 
-    public void setEmployee_salary(String employee_salary) {
-        this.employee_salary = employee_salary;
+    public void setEmployeeSalary(int employeeSalary) {
+        this.employeeSalary = employeeSalary;
     }
 
-    public Integer getEmployee_age() {
-        return employee_age;
+    public int getEmployeeAge() {
+        return employeeAge;
     }
 
-    public void setEmployee_age(Integer employee_age) {
-        this.employee_age = employee_age;
+    public void setEmployeeAge(int employeeAge) {
+        this.employeeAge = employeeAge;
     }
 
-    public String getProfile_image() {
-        return profile_image;
+    public String getProfileImage() {
+        return profileImage;
     }
 
-    public void setProfile_image(String profile_image) {
-        this.profile_image = profile_image;
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 }

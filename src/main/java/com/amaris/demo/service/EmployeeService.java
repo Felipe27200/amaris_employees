@@ -28,7 +28,7 @@ public class EmployeeService
         if (employee == null)
             throw new NotFoundException("Employee with id '" + id + "' not found");
 
-        this.setAnualSalary(employee);
+        this.setAnnualSalary(employee);
 
         return employeeRepository.findEmployeeById(id);
     }
@@ -42,7 +42,7 @@ public class EmployeeService
 
         for (EmployeeDTO employee : employeesList)
         {
-            this.setAnualSalary(employee);
+            this.setAnnualSalary(employee);
         }
 
         return employeesList;
@@ -56,8 +56,8 @@ public class EmployeeService
             throw new RuntimeException("The employee id must not be less than zero");
     }
 
-    private void setAnualSalary(EmployeeDTO employee)
+    private void setAnnualSalary(EmployeeDTO employee)
     {
-        employee.setAnualSalary((employee.getEmployeeSalary() * 12));
+        employee.setAnnualSalary((employee.getEmployeeSalary() * 12));
     }
 }

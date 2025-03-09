@@ -6,6 +6,8 @@ import com.amaris.demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeService
 {
@@ -27,6 +29,16 @@ public class EmployeeService
             throw new NotFoundException("Employee with id '" + id + "' not found");
 
         return employeeRepository.findEmployeeById(id);
+    }
+
+    public List<EmployeeDTO> findAllEmployees()
+    {
+        List<EmployeeDTO> employeesList = this.employeeRepository.findAll();
+
+        if (employeesList == null || employeesList.isEmpty())
+            throw new NotFoundException("No employees found");
+
+        return employeesList;
     }
 
     public void validationIdEmployee(Integer id)

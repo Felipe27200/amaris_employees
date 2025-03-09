@@ -1,30 +1,27 @@
 package com.amaris.demo.response;
 
-public class CustomErrorResponse
+public class CustomErrorResponse extends BasicResponse
 {
-    private int status;
-    private String message;
+    private int statusCode;
 
     public CustomErrorResponse() { }
 
-    public CustomErrorResponse(int status, String message) {
-        this.status = status;
-        this.message = message;
+    public CustomErrorResponse(int statusCode, String message)
+    {
+        super("unsuccessful", message);
+        this.statusCode = statusCode;
     }
 
-    public int getStatus() {
-        return status;
+    public CustomErrorResponse(String status, String message, int statusCode) {
+        super(status, message);
+        this.statusCode = statusCode;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public int getStatusCode() {
+        return statusCode;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
     }
 }

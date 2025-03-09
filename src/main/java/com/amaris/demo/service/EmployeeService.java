@@ -28,6 +28,8 @@ public class EmployeeService
         if (employee == null)
             throw new NotFoundException("Employee with id '" + id + "' not found");
 
+        this.setAnualSalary(employee);
+
         return employeeRepository.findEmployeeById(id);
     }
 
@@ -38,6 +40,11 @@ public class EmployeeService
         if (employeesList == null || employeesList.isEmpty())
             throw new NotFoundException("No employees found");
 
+        for (EmployeeDTO employee : employeesList)
+        {
+            this.setAnualSalary(employee);
+        }
+
         return employeesList;
     }
 
@@ -47,5 +54,10 @@ public class EmployeeService
             throw new RuntimeException("The employee id must not be null");
         if (id <= 0)
             throw new RuntimeException("The employee id must not be less than zero");
+    }
+
+    private void setAnualSalary(EmployeeDTO employee)
+    {
+        employee.setAnualSalary((employee.getEmployeeSalary() * 12));
     }
 }

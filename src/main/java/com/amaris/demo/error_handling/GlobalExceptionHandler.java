@@ -39,10 +39,10 @@ public class GlobalExceptionHandler
     {
         String errorMessage = exc.getMessage();
 
-        CustomErrorResponse errorsResponse = new CustomErrorResponse();
-
-        errorsResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorsResponse.setMessage(errorMessage);
+        CustomErrorResponse errorsResponse = new CustomErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                errorMessage
+        );
 
         // Return an error response.
         return new ResponseEntity<>(errorsResponse, HttpStatus.BAD_REQUEST);
@@ -51,10 +51,10 @@ public class GlobalExceptionHandler
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<?> handleNotFoundErrors(Exception ex)
     {
-        CustomErrorResponse errorResponse = new CustomErrorResponse();
-
-        errorResponse.setStatus(HttpStatus.NOT_FOUND.value());
-        errorResponse.setMessage(ex.getMessage());
+        CustomErrorResponse errorResponse = new CustomErrorResponse(
+            HttpStatus.NOT_FOUND.value(),
+            ex.getMessage()
+        );
 
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
@@ -62,10 +62,10 @@ public class GlobalExceptionHandler
     @ExceptionHandler(value = Exception.class)
     public ResponseEntity<CustomErrorResponse> handleException(Exception ex)
     {
-        CustomErrorResponse errorResponse = new CustomErrorResponse();
-
-        errorResponse.setStatus(HttpStatus.BAD_REQUEST.value());
-        errorResponse.setMessage(ex.getMessage());
+        CustomErrorResponse errorResponse = new CustomErrorResponse(
+            HttpStatus.BAD_REQUEST.value(),
+            ex.getMessage()
+        );
 
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }

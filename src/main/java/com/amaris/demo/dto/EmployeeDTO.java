@@ -18,6 +18,8 @@ public class EmployeeDTO
     @JsonProperty("profile_image")
     private String profileImage;
 
+    private Integer annualSalary;
+
     public EmployeeDTO() {
     }
 
@@ -27,6 +29,15 @@ public class EmployeeDTO
         this.employeeSalary = employeeSalary;
         this.employeeAge = employeeAge;
         this.profileImage = profileImage;
+    }
+
+    public EmployeeDTO(Integer id, String employeeName, int employeeSalary, int employeeAge, String profileImage, Integer annualSalary) {
+        Id = id;
+        this.employeeName = employeeName;
+        this.employeeSalary = employeeSalary;
+        this.employeeAge = employeeAge;
+        this.profileImage = profileImage;
+        this.annualSalary = annualSalary;
     }
 
     public Integer getId() {
@@ -67,5 +78,13 @@ public class EmployeeDTO
 
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
+    }
+
+    public Integer getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public void setAnnualSalary(Integer annualSalary) {
+        this.annualSalary = annualSalary;
     }
 }

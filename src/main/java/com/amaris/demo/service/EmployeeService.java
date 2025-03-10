@@ -53,7 +53,7 @@ public class EmployeeService
         if (id == null)
             throw new RuntimeException("The employee id must not be null");
         if (id <= 0)
-            throw new RuntimeException("The employee id must not be less than zero");
+            throw new RuntimeException("The ID must be greater than zero");
     }
 
     private void setAnnualSalary(EmployeeDTO employee)

@@ -4,7 +4,7 @@
 - Spring Boot v3.4.3
 
 ## JDK Version
-- JDK 11
+- JDK 21
 
 ## Application Server
 - WildFly 30.0.0.Final

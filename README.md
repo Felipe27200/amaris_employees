@@ -9,6 +9,14 @@
 ## Application Server
 - WildFly 30.0.0.Final
 
+## Preparing the Project
+- Before running the application, make sure to fetch all dependencies using Maven:
+
+```
+mvn clean install
+```
+
+
 ## Deploying the Spring Boot Project
 - Take the WAR file `juan-zea-employees-1.war` and place it in the WildFly deployment directory:
 
